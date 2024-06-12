@@ -38,7 +38,7 @@ Route::get('/dashboard', function () {
 Route::resource('shop', isShopController::class);
 
 Route::get('/Maps', function () {
-    return Inertia::render('Maps');
+    return Inertia::render('Radar/Maps');
 })->middleware(['auth', 'verified'])->name('maps');
 
 Route::middleware('auth')->group(function () {

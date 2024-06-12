@@ -19,12 +19,12 @@ console.log(props.weatherData)
             <div class="flex items-center justify-between">
                 <h2 class="font-semibold text-xl text-gray-800 leading-tight">Blog</h2>
                 <div class="flex items-center gap-4">
-                    <!-- <h1 class="font-bold">{{ props.weatherData.name }} </h1>
+                    <h1 class="font-bold">{{ props.weatherData.name }} </h1>
                     <p>{{ props.weatherData.weather[0].description }}</p>
                     <img :src="`https://openweathermap.org/img/wn/{{weatherData.weather[0].icon}}.png`" alt="">
                     <p>{{ props.weatherData.main.temp }}<sup>c</sup> (feels like: {{ props.weatherData.main.feels_like }}<sup>c</sup>)</p>
                     <p>Clouds: {{ props.weatherData.clouds.all }}%</p>
-                    <p>Humidity: {{ props.weatherData.main.humidity }}%</p> -->
+                    <p>Humidity: {{ props.weatherData.main.humidity }}%</p>
                 </div>
             </div>
         </template>

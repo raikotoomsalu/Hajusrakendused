@@ -2,7 +2,7 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import { Head } from '@inertiajs/vue3';
 import axios from 'axios';
-import Radar from '@/Pages/Radar.vue';
+import Radar from '@/Pages/Radar/Radar.vue';
 </script>
 
 <template>
