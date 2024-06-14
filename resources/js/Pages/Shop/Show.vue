@@ -10,13 +10,15 @@ defineProps({
 
 <template>
      <AuthenticatedLayout>
-        <div class="flex justify-center mt-10">
-            <div class="w-72 h-72 flex bg-white shadow-md rounded-xl">
-                    <p class="text-lg font-bold text-black truncate block capitalize pt-5 pl-5 w-full">{{ products.title }}</p>
-                    <div class="flex items-center">
-                        <p class="text-lg font-semibold text-black my-3">{{ products.price }}€</p>
-                    </div>
-            </div>
-        </div>
+        <body>
+            <section class="w-fit mx-auto flex justify-center mt-10">
+                <div class="w-72 h-72 flex bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl">
+                        <p class="text-4xl font-bold truncate block capitalize">{{ products.title }}</p>
+                        <div class="flex items-center">
+                            <p class="text-3xl font-semibold text-black my-3">{{ products.price }}€</p>
+                        </div>
+                </div>
+            </section>
+        </body>
      </AuthenticatedLayout>
 </template>
