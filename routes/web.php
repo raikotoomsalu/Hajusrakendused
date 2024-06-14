@@ -56,15 +56,4 @@ Route::middleware(['auth', 'admin'])->group(function () {
 
 Route::resource('comment', CommentController::class)->except('update');
 Route::post('comment/update/{comment}', [CommentController::class, 'update'])->name('comment.update');
-
-Route::get('/API', function () {
-    return Inertia::render('Api');
-})->middleware(['auth:sanctum', 'verified'])->name('api');
-
-Route::middleware('auth:sanctum')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
-
 require __DIR__.'/auth.php';
