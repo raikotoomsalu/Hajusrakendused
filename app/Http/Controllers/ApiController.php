@@ -13,8 +13,8 @@ class ApiController extends Controller
         return $response->json();
     } 
 
-    private function cars($limit) {
-        $response = Http::get('https://hajus.tak21fredyait.itmajakas.ee/api/car?limit=' . $limit);
+    private function cats($limit) {
+        $response = Http::get('https://mannicoon.com/api/cats?limit=' . $limit);
 
         return $response->json();
     } 
@@ -27,13 +27,16 @@ class ApiController extends Controller
             $limit = '';
         }
 
-        dd(request()->get('whatapi'));
+        // dd(request()->get('whatapi'));
 
         if (request()->get('whatapi') == 'lurescape') {
             $response = $this->lurescape($limit);
-        } else if (request()->get('whatapi') == 'cars'){
-            $response = $this->cars($limit);
+        } else if (request()->get('whatapi') == 'cats'){
+            $response = $this->cats($limit);
+        } else {
+            $response = response()->json('No one found');
         }
+
 
         return $response;
     }

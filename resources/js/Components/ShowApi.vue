@@ -1,6 +1,5 @@
 <script>
 import axios from "axios";
-
 export default {
     data() {
         return {
@@ -12,7 +11,7 @@ export default {
     methods: {
         fetchdata() {
             axios
-                .get('/api/api/class', {
+                .get('/api/class', {
                     params: {
                         whatapi: this.whatapi,
                         limit: this.limit,
@@ -37,7 +36,7 @@ export default {
                 <select name="" v-model="whatapi" id="">
                     <option value="">Select api</option>
                     <option value="lurescape">Sulla Mulla Kala</option>
-                    <option value="cars">Autod</option>
+                    <option value="cats">Kassid</option>
                 </select>
                 <input
                     type="number"
@@ -47,7 +46,8 @@ export default {
                 />
                 <button @click="fetchdata" class="">Fetch</button>
             </div>
-        <div class="grid grid-cols-3 gap-24 items-center py-24" v-if="apiData">
+
+        <div class="grid grid-cols-6 gap-3 items-center py-24" v-if="apiData">
 
             <div
                 v-if="whatapi == 'lurescape'"
@@ -66,18 +66,27 @@ export default {
                     </div>
                 </div>
             </div>
+
             <div
-                v-if="whatapi == 'cars'"
-                v-for="data in apiData"
+                v-if="whatapi == 'cats'"
+                v-for="data in apiData.cats"
                 :key="data.id"
             >
-                <div class="border rounded-lg bg-white p-4">
-                    <h1 class="font-semibold text-lg">{{ data?.brand }}, {{ data?.year }}</h1>
-                    <p>Engine: {{ data?.model }}</p>
-                    <p>Body: {{ data?.body }}</p>
-                    <p>Kilometers: {{ data?.mileage }}</p>
+            <div class="border rounded-lg bg-white p-4 h-auto w-52">
+                <div class="w-16 h-auto">
+                    <img :src="'https://mannicoon.com/storage/images/cats/' + data?.image" :alt="data?.name" />
                 </div>
+                <div>
+                    <h1 class="font-semibold text-lg mt-5">{{ data?.name }}</h1>
+                    <p>Color: {{ data?.color }}</p>
+                    <p>Type: {{ data?.cathegory }}</p>
+                    <p>Birth date: {{ data?.birth_date }}</p>
+                </div>
+                   
+                    
+            </div>
             </div>
         </div>
+
     </div>
 </template>

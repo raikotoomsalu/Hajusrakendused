@@ -1,11 +1,11 @@
 <?php
 
-
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ApiController;
 use App\Http\Controllers\CarController;
 use App\Http\Controllers\GoogleMarkerController;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Route;
+
 
 Route::get('/user', function (Request $request) {
     return $request->user();
@@ -22,4 +22,5 @@ Route::put('/car/{car}', [CarController::class, 'update']);
 Route::get('/car/{car}', [CarController::class, 'show']);
 Route::delete('/car/{car}', [CarController::class, 'destroy']);
 
-Route::get('api/class', [ApiController::class, 'index']);
+Route::get('/class', [ApiController::class, 'index']);
+
