@@ -6,6 +6,7 @@ use App\Http\Controllers\CommentController;
 use App\Http\Controllers\isShopController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\StripePaymentController;
 use App\Models\Blog;
 use App\Models\User;
 use Illuminate\Foundation\Application;
@@ -43,12 +44,14 @@ Route::get('/dashboard', function () {
 
 // Route::resource('shop', isShopController::class);
 Route::get('/shop', [ProductsController::class, 'showProducts'])->name('shop');
-
 Route::get('cart', [ProductsController::class, 'showCartTable']);
 Route::get('add-to-cart/{id}', [ProductsController::class, 'addToCart']);
-
 Route::delete('remove-from-cart', [ProductsController::class, 'removeCartItem']);
 Route::get('clear-cart', [ProductsController::class, 'clearCart']);
+
+Route::get('/stripe', [StripePaymentController::class, 'stripe'])->name('stripe.index');
+Route::get('stripe/checkout', [StripePaymentController::class, 'stripeCheckout'])->name('stripe.checkout');
+Route::get('stripe/checkout/success', [StripePaymentController::class, 'stripeCheckoutSuccess'])->name('stripe.checkout.success');
 
 Route::get('/Maps', function () {
     return Inertia::render('Radar/Maps');

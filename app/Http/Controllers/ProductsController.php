@@ -13,6 +13,7 @@ class ProductsController extends Controller
 
         return view('cart', compact('products'));
     }
+
     public function addToCart($id)
     {
         $product = Product::find($id);

@@ -49,6 +49,10 @@
                 @endforeach @endif
             </div>
         </div>
+
+        <div class="container">
+            <a href="/cart" class="container" style="font-size: large; text-decoration:none; color:black">Go to cart</a>       
+        </div>
     <script>
         $(document).ready(function () {
             $('.add-to-cart-button').on('click', function () {

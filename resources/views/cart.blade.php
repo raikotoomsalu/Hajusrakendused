@@ -32,9 +32,6 @@
                 <tr>
                     <td data-th="Product">
                         <div class="row">
-                            <div class="col-sm-3 hidden-xs"><img src="{{ $details['photo'] }}" width="50" height="" class="img-responsive" />
-
-                            </div>
 
                             <div class="col-sm-9">
                                 <p class="nomargin">{{ $details['name'] }}</p>
@@ -66,8 +63,9 @@
             </tfoot>
 
             </table>
-            <a href="{{ url('http://127.0.0.1:8000/') }}" class="btn shopping-btn">Continue Shopping</a>
-            <a href="" class="btn btn-warning check-btn">Proceed Checkout</a>
+            <a href="{{ url('http://127.0.0.1:8000/dashboard') }}" class="btn shopping-btn">Home</a>
+            <!-- <a href="" class="btn btn-warning check-btn">Proceed Checkout</a> -->
+                <a href="{{ route('stripe.checkout') }}" class="btn btn-primary check-btn">Proceed checkout</a>
             <div class="container products">
                 <div class="row">
 
