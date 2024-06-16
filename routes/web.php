@@ -4,6 +4,7 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\isShopController;
+use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\ProfileController;
 use App\Models\Blog;
 use App\Models\User;
@@ -40,7 +41,14 @@ Route::get('/dashboard', function () {
     ]);
 })->middleware(['auth:sanctum', 'verified'])->name('dashboard');
 
-Route::resource('shop', isShopController::class);
+// Route::resource('shop', isShopController::class);
+Route::get('/shop', [ProductsController::class, 'showProducts'])->name('shop');
+
+Route::get('cart', [ProductsController::class, 'showCartTable']);
+Route::get('add-to-cart/{id}', [ProductsController::class, 'addToCart']);
+
+Route::delete('remove-from-cart', [ProductsController::class, 'removeCartItem']);
+Route::get('clear-cart', [ProductsController::class, 'clearCart']);
 
 Route::get('/Maps', function () {
     return Inertia::render('Radar/Maps');
